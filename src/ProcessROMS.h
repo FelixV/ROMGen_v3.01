@@ -52,7 +52,6 @@ typedef unsigned int UINT32;
 #define DECRYPT_MODE_BITSWAP16		2
 #define DECRYPT_MODE_BITSWAP24		3
 #define DECRYPT_MODE_BITSWAP32		4
-#define DECRYPT_MODE_MAKETRAX		5
 
 BOOL open_file_disp_err(FILE*& m_arg_fp, std::string m_arg_rd_file_path_name, std::string m_arg_open_mode);
 static UINT8 decrypt(int addr, UINT8 e, UINT8* m_arg_swap_xor_table, int* m_arg_picktable);
