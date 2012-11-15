@@ -47,7 +47,7 @@ typedef unsigned int UINT32;
 
 //*********************************
 
-#define DECRYPT_MODE_NONE			0
+#define DECRYPT_MODE_NONE		0
 #define DECRYPT_MODE_BITSWAP8		1
 #define DECRYPT_MODE_BITSWAP16		2
 #define DECRYPT_MODE_BITSWAP24		3
