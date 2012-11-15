@@ -4,4 +4,5 @@ v3.01 r4
 * Adds in -ini switch which allows reading of bitswap information
   from an ini file.
 
-* NO BINARY AVAILABLE HERE YET *
+* Added in "bin_release" directory.  
+ - This should work as a direct replacement for version 3.0 as long as the -ini switch isn't used.
