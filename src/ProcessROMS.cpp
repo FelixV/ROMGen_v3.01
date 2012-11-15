@@ -88,9 +88,10 @@ BOOL create_tables_from_ini(std::string m_arg_ini_file_name, unsigned int& m_arg
         m_arg_bit_swap_mode = DECRYPT_MODE_BITSWAP24;
     } else if(m_str == "BITSWAP32") {
         m_arg_bit_swap_mode = DECRYPT_MODE_BITSWAP32;
-    } else if (m_str == "MAKETRAX") {
-        m_arg_bit_swap_mode = DECRYPT_MODE_MAKETRAX;
-	}
+    } else {
+        printf("Error: INI: Invalid MODE!\n");
+        return FALSE;
+    }
 
     m_key_str[0] = 0;
     m_n_size = GetPrivateProfileString("PICKTABLE", "VALUES", "", m_key_str, 255, m_arg_ini_file_name.c_str());
