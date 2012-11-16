@@ -287,12 +287,6 @@ BOOL ProcessROMS(std::string m_arg_in_file_name, unsigned char RAM[0x4000], std:
 					{
 						RAM[i] = decrypt_8(i, RAM[i], m_swap_xor_table, m_picktable);
 					}
-
-					if (m_bit_swap_mode == DECRYPT_MODE_MAKETRAX)
-					{
-						//RAM[i] = decrypt_16_8(RAM[i]);
-						patch_maketrax(RAM);
-					}
 				}
             }
         }
