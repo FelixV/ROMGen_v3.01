@@ -274,7 +274,7 @@ BOOL ProcessROMS(std::string m_arg_in_file_name, unsigned char RAM[0x4000], std:
 
     //Read bytes from file.
     m_file_bytes_rd = fread(RAM, 1, 0x4000, m_fp_in);
-    if(m_file_bytes_rd >= 0x4000)
+    if(m_file_bytes_rd > 0)
     {
         if(m_bit_swap_mode != DECRYPT_MODE_NONE)
         {
