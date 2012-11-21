@@ -278,7 +278,6 @@ BOOL ProcessROMS(std::string m_arg_in_file_name, unsigned char RAM[0x4000], std:
     {
         if(m_bit_swap_mode != DECRYPT_MODE_NONE)
         {
-
 			if (m_bit_swap_mode == DECRYPT_MODE_BITSWAP8)
 			{
 	            for (i = 0; i < 0x4000; i++)

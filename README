@@ -6,3 +6,12 @@ v3.01 r4
 
 * Added in "bin_release" directory.  
  - This should work as a direct replacement for version 3.0 as long as the -ini switch isn't used.
+
+ 
+ 21 Nov 2012
+ -------------
+ * Removed INI directory
+ * Added .bat files and other support files to the bin_release directory.
+  - Put your ROM files in bin_release/roms/GAMENAME directory.
+  - Click the .bat to load the game
+  - THIS IS UNTESTED AS THE PAPILIO DRIVERS WONT LOAD ON WINDOWS 8 AT THIS TIME
