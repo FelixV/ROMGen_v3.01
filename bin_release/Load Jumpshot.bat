@@ -3,7 +3,7 @@
 cls
 
 echo ----------------------------------
-echo Jumpshot Loader v1 by Felix
+echo Jumpshot Loader
 echo ----------------------------------
 
 echo Concatenating rom files : PacPlus.6e PacPlus.6f PacPlus.6h PacPlus.6j into : maincpu

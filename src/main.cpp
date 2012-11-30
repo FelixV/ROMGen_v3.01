@@ -1,11 +1,11 @@
 /*
     28 Feb 2012.
-    Unofficial changes made by truhy & emuDrache:
+    Unofficial changes made by truhy & Al:
         - Added decrypt bitswap on input file using routines from pacplus.c from mame
         - Added .ini file for configuration of tables for decrypt bitswap
 */
 
-#include "ProcessROMS.h"
+#include "process_rom_wrap.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -16,12 +16,8 @@ using namespace std;
 #define MAX_ROM_SIZE 0x4000
 
 int main(int argc, char* argv[])
-
 {
-	cerr << "romgen by MikeJ\n";
-	cerr << " - unofficial version 3.01 r4 by truhy and emuDrache\n";
-	cerr << " - - Some Decryption Routines from MAME\n";
-	cerr << " - - Some Not..\n\n";
+	cerr << "romgen v3.0.1r4 by MikeJ truhy and eD\n";
 	// read file
 
 	string buffer;
@@ -272,11 +268,14 @@ int main(int argc, char* argv[])
     }
     else
     {
-        //For ProcessROMS wrap.
-        unsigned char RAM[0x4000];
+        //For Process_ROM wrap.
+        unsigned char RAM[MAX_ROM_SIZE];
 
-        //Read file into ProcessROMS RAM buffer.
-        if(!ProcessROMS(argv[1], RAM, ini_file_name))
+        //Fill all with zeroes.
+        memset(RAM, 0, MAX_ROM_SIZE);
+
+        //Read file into PacPlus RAM buffer.
+        if(!process_rom(argv[1], RAM, MAX_ROM_SIZE, ini_file_name))
         {
             return -1;
         }
@@ -379,7 +378,7 @@ int main(int argc, char* argv[])
 	  return 0;
 	} // end case	
 	
-	printf("-- generated with romgen v3.0 by MikeJ\n");
+	printf("-- generated with romgen v3.0.1r4 by MikeJ truhy and eD\n");
 	printf("library ieee;\n");
 	printf("  use ieee.std_logic_1164.all;\n");
 	printf("  use ieee.std_logic_unsigned.all;\n");

@@ -1,5 +1,5 @@
-#ifndef PROCESS_ROMS_H
-#define PROCESS_ROMS_H
+#ifndef PACPLUS_WRAP_H
+#define PACPLUS_WRAP_H
 
 #include "my_types.h"
 #include "to_string.h"
@@ -8,8 +8,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <list>
 
 typedef unsigned char UINT8;
+typedef unsigned short UINT16;
 typedef unsigned int UINT32;
 
 //*********************************  From emucore.h
@@ -47,17 +49,67 @@ typedef unsigned int UINT32;
 
 //*********************************
 
-#define DECRYPT_MODE_NONE		0
-#define DECRYPT_MODE_BITSWAP8		1
-#define DECRYPT_MODE_BITSWAP16		2
-#define DECRYPT_MODE_BITSWAP24		3
-#define DECRYPT_MODE_BITSWAP32		4
+#define DECRYPT_MODE_NONE      0
+#define DECRYPT_MODE_BITSWAP8  1
+#define DECRYPT_MODE_BITSWAP16 2
+#define DECRYPT_MODE_BITSWAP24 3
+#define DECRYPT_MODE_BITSWAP32 4
+#define DECRYPT_MODE_PATCH     5
+#define DECRYPT_MODE_CHKSUM    6
+
+#define CHKSUM_TYPE_NONE     0
+#define CHKSUM_TYPE_STANDARD 1
+#define CHKSUM_TYPE_EVEN     2
+#define CHKSUM_TYPE_ODD      3
+#define CHKSUM_TYPE_EVEN_ODD 4
+
+typedef struct
+{
+    int m_offset;
+    UINT8 m_value;
+}patch_info_type;
 
 BOOL open_file_disp_err(FILE*& m_arg_fp, std::string m_arg_rd_file_path_name, std::string m_arg_open_mode);
-static UINT8 decrypt(int addr, UINT8 e, UINT8* m_arg_swap_xor_table, int* m_arg_picktable);
-BOOL create_tables_from_ini(std::string m_arg_ini_file_name, unsigned int& m_arg_bit_swap_mode, UINT8*& m_arg_swap_xor_table, int*& m_arg_picktable);
+UINT8 check_sum_8(UINT8* m_arg_buf, int m_arg_buf_size);
+UINT8 check_sum_8_even(UINT8* m_arg_buf, int m_arg_buf_size);
+UINT8 check_sum_8_odd(UINT8* m_arg_buf, int m_arg_buf_size);
+UINT8 decrypt_bswap8(int addr, UINT8 e, UINT8* m_arg_swap_xor_table, int* m_arg_picktable);
+UINT16 decrypt_bswap16(int addr, UINT16 e, UINT8* swap_xor_table, int* picktable);
+UINT32 decrypt_bswap24(int addr, UINT32 e, UINT8* swap_xor_table, int* picktable);
+UINT32 decrypt_bswap32(int addr, UINT32 e, UINT8* swap_xor_table, int* picktable);
+BOOL read_ini_init(
+    std::string m_arg_ini_file_name,
+    unsigned int& m_arg_steps
+);
+BOOL read_ini_mode(
+    std::string m_arg_ini_file_name,
+    std::string m_arg_ini_key_str,
+    unsigned int& m_arg_decrypt_mode
+);
+BOOL read_ini_swap_entries(
+    std::string m_arg_ini_file_name,
+    std::string m_arg_ini_key_str,
+    unsigned int m_arg_decrypt_mode,
+    int& m_arg_swap_start,
+    int& m_arg_swap_end,
+    UINT8*& m_arg_swap_xor_table,
+    int*& m_arg_picktable
+);
+BOOL read_ini_patch_entries(
+    std::string m_arg_ini_file_name,
+    std::string m_arg_ini_key_str,
+    std::list<patch_info_type>& m_arg_patch_info_list
+);
+BOOL read_ini_check_sum_entries(
+    std::string m_arg_ini_file_name,
+    std::string m_arg_ini_key_str,
+    unsigned int& m_arg_check_sum_type,
+    int& m_arg_check_sum_start,
+    int& m_arg_check_sum_end,
+    std::list<int>& m_arg_check_sum_dest_list
+);
 BOOL create_tables(UINT8*& m_arg_swap_xor_table, int*& m_arg_picktable);
 void cleanup(FILE* m_arg_fp_in, UINT8* m_arg_swap_xor_table, int* m_arg_picktable);
-BOOL ProcessROMS(std::string m_arg_in_file_name, UINT8 RAM[0x4000], std::string m_arg_ini_file_name);
+BOOL process_rom(std::string m_arg_in_file_name, unsigned char* m_arg_ram, int m_arg_ram_size, std::string m_arg_ini_file_name);
 
 #endif

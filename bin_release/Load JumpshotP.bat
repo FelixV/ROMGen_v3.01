@@ -3,7 +3,7 @@
 cls
 
 echo ----------------------------------
-echo JumpshotP Loader v1 by Felix
+echo JumpshotP Loader
 echo ----------------------------------
 
 echo Concatenating rom files : js6e.bin js6f.bin js6h.bin js6j.bin into : maincpu

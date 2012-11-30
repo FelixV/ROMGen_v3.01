@@ -3,7 +3,7 @@
 cls
 
 echo ----------------------------------
-echo Shoot the Bull Loader v1 by Felix (Controls are borked)
+echo Shoot the Bull Loader
 echo -
 echo - http://www.gamesdbase.com/mame-rom/ShootBul.aspx
 echo -

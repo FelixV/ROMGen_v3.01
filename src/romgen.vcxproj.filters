@@ -18,18 +18,21 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="process_rom_wrap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="string_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tc_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProcessROMS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="process_rom_wrap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="string_utils.h">
@@ -39,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="to_string.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProcessROMS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

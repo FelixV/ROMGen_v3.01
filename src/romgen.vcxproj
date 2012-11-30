@@ -47,7 +47,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -84,13 +84,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ProcessROMS.cpp" />
+    <ClCompile Include="process_rom_wrap.cpp" />
     <ClCompile Include="string_utils.cpp" />
     <ClCompile Include="tc_string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_types.h" />
-    <ClInclude Include="ProcessROMS.h" />
+    <ClInclude Include="process_rom_wrap.h" />
     <ClInclude Include="string_utils.h" />
     <ClInclude Include="tc_string.h" />
     <ClInclude Include="to_string.h" />

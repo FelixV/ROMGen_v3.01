@@ -175,7 +175,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcessROMS.cpp"
+				RelativePath=".\process_rom_wrap.cpp"
 				>
 			</File>
 			<File
@@ -197,7 +197,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcessROMS.h"
+				RelativePath=".\process_rom_wrap.h"
 				>
 			</File>
 			<File

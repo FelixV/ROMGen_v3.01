@@ -15,3 +15,10 @@ v3.01 r4
   - Put your ROM files in bin_release/roms/GAMENAME directory.
   - Click the .bat to load the game
   - THIS IS UNTESTED AS THE PAPILIO DRIVERS WONT LOAD ON WINDOWS 8 AT THIS TIME
+  
+ 30 Nov 2012
+ -------------
+  * Renamed repository to ROMGen_v3.01 (vice ROMGen_v3.01_r4)
+  * Uploaded R5 (R4 was well umm. borked.. initially uploaded wrong files *sigh*
+  * Updated all batch files
+  * Tested under Windows 8

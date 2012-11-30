@@ -3,7 +3,7 @@
 cls
 
 echo ----------------------------------
-echo PacPlus Loader v1 by Felix
+echo PacPlus Loader
 echo ----------------------------------
 
 echo Concatenating rom files : PacPlus.6e PacPlus.6f PacPlus.6h PacPlus.6j into : maincpu
@@ -34,13 +34,13 @@ echo Generating intermediate file from : 82s1237f into : prom7_dst.mem
 tools\romgen.exe tmp\82s1237f PROM7_DST 4 m > tmp\prom7_dst.mem
 
 echo Generating intermediate file from : gfx1 into : gfx1.mem
-tools\romgen.exe tmp\gfx1 GFX1 13 m > tmp\gfx1.mem
+tools\romgen.exe tmp\gfx1 GFX1 13 m  > tmp\gfx1.mem
 
 echo Generating intermediate file from : maincpu into : rom0.mem
 tools\romgen.exe tmp\maincpu ROM_PGM_0 14 m -ini:roms\PacPlus\PacPlus.ini > tmp\rom0.mem
 
 echo Generating intermediate file from : gfx1 into : rom1.mem
-tools\romgen.exe tmp\gfx1 ROM_PGM_1 13 m > tmp\rom1.mem
+tools\romgen.exe tmp\gfx1 ROM_PGM_1 13 m  > tmp\rom1.mem
 
 echo Creating final .bit file...
 
@@ -48,13 +48,13 @@ tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt hardware\pacm
 tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt tmp\temp0.bit -bd tmp\prom4_dst.mem tag avrmap.rom_col4a -o b tmp\temp1.bit
 tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt tmp\temp1.bit -bd tmp\prom7_dst.mem tag avrmap.rom_col7f -o b tmp\temp2.bit
 tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt tmp\temp2.bit -bd tmp\gfx1.mem tag avrmap.rom_gfx1 -o b tmp\temp3.bit
-tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt tmp\temp3.bit -bd tmp\rom0.mem tag avrmap.rom_code -o b tmp\out.bit
+tools\data2mem.exe -bm hardware\pacman_hardware_p1_500K_bd.bmm -bt tmp\temp3.bit -bd tmp\rom0.mem tag avrmap.rom_code -o b tmp\PacPlus.bit
 
 echo Programming Papilio FPGA (temporary)
-tools\papilio-prog.exe -v -f tmp\out.bit
+tools\papilio-prog.exe -v -f tmp\PacPlus.bit
 
 echo Cleaning up....
 
-del /q tmp\*
+rem del /q tmp\*
 
 pause
