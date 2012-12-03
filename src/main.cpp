@@ -1,6 +1,6 @@
 /*
     28 Feb 2012.
-    Unofficial changes made by truhy & Al:
+    Unofficial changes made by truhy & Felix:
         - Added decrypt bitswap on input file using routines from pacplus.c from mame
         - Added .ini file for configuration of tables for decrypt bitswap
 */
@@ -17,7 +17,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	cerr << "romgen v3.0.1r4 by MikeJ truhy and eD\n";
+	cerr << "romgen v3.0 by MikeJ\n";
+	cerr << "  v3.0.1 mods by truhy and Felix\n";
 	// read file
 
 	string buffer;
