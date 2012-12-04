@@ -17,8 +17,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	cerr << "romgen v3.0 by MikeJ\n";
-	cerr << "  v3.0.1 mods by truhy and Felix\n";
+	cerr << "romgen v3.00 by MikeJ\n";
+	cerr << "  v3.00.1 mods by truhy and Felix\n";
 	// read file
 
 	string buffer;
