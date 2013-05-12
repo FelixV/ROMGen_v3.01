@@ -2,26 +2,26 @@ Changelog:
 
 added readme, because im a good github citizen.
 
-v3.01 r4
-----------
-* Adds in -ini switch which allows reading of bitswap information
-  from an ini file.
+ 30 Nov 2012 - v3.01 r5
+ ------------------------------------
+  * Renamed repository to ROMGen_v3.01 (vice ROMGen_v3.01_r4)
+  * Uploaded R5 (R4 was well umm. borked.. initially uploaded wrong files *sigh*
+  * Updated all batch files
+  * Tested under Windows 8 (had to use 'test mode' workaround to load papilio usb drivers)
 
-* Added in "bin_release" directory.  
- - This should work as a direct replacement for version 3.0 as long as the -ini switch isn't used.
-
- 
- 21 Nov 2012
- -------------
+ 21 Nov 2012 - v3.01 r4
+ ------------------------------------
  * Removed INI directory
  * Added .bat files and other support files to the bin_release directory.
   - Put your ROM files in bin_release/roms/GAMENAME directory.
   - Click the .bat to load the game
   - THIS IS UNTESTED AS THE PAPILIO DRIVERS WONT LOAD ON WINDOWS 8 AT THIS TIME
   
- 30 Nov 2012
- -------------
-  * Renamed repository to ROMGen_v3.01 (vice ROMGen_v3.01_r4)
-  * Uploaded R5 (R4 was well umm. borked.. initially uploaded wrong files *sigh*
-  * Updated all batch files
-  * Tested under Windows 8
+ 13 Nov 2012 - v3.01 r4
+ ------------------------------------
+ * Adds in -ini switch which allows reading of bitswap information
+   from an ini file.
+ * Added in "bin_release" directory.  
+   - This should work as a direct replacement for version 3.0 as long as the -ini switch isn't used.
+
+ 
